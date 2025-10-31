@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hathim Manaf - Classic Data Scientist Portfolio</title>
+
+<meta name="description" content="Hathim Manaf Data Science portfolio showcasing projects, skills, and education." />
+<meta name="keywords" content="Data Science, Machine Learning, Python, Portfolio, Hathim Manaf" />
+<meta name="author" content="Hathim Manaf" />
+
+<!-- Import Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato&display=swap" rel="stylesheet" />
+
+<!-- AOS CSS for animations -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+<style>
+  /* Reset and global */
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Lato', Arial, sans-serif;
+    background: #f2f0eb;
+    color: #333;
+    margin: 0;
+  }
+
+  /* Navbar */
+  nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fffef9;
+    border-bottom: 1.5px solid #c9b68a;
+    z-index: 1100;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+    font-family: 'Lato', sans-serif;
+  }
+
+  nav .nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.3rem;
+  }
+
+  nav ul li a {
+    position: relative;
+    font-size: 1.05rem;
+    letter-spacing: 0.3px;
+    color: #465b6b;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 6px 0;
+    transition: color 0.25s ease;
+  }
+
+  nav ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    width: 0;
+    height: 2px;
+    background-color: #c9b68a;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+  }
+
+  nav ul li a:hover,
+  nav ul li a:focus {
+    color: #a28543;
+    outline: none;
+  }
+
+  nav ul li a:hover::after,
+  nav ul li a:focus::after {
+    width: 70%;
+  }
+
+  /* Spacer for fixed nav */
+  .spacer {
+    height: 72px;
+  }
+
+  /* Hero section */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(120deg, #273847 77%, #f7f4ec 100%);
+    border-bottom: 3px solid #c9b68a;
+    box-shadow: 0 10px 40px rgba(39, 56, 70, 0.25);
+  }
+
+  .hero-content {
+    max-width: 1100px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 3rem 2.5rem 4rem 2.5rem;
+    margin: 0 auto;
+  }
+
+  .hero-photo {
+    flex-shrink: 0;
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    border: 6px solid #c9b68a;
+    box-shadow: 0 14px 38px rgba(40, 27, 17, 0.12);
+    background-image: url('profile.jpg'); 
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .hero-info {
+    color: #f5f1e6;
+  }
+
+  .hero-info h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 3.7rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-info h2 {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 1.25rem;
+    letter-spacing: 1.5px;
+    color: #d3bea9;
+    font-style: italic;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  }
+
+  .hero-info p {
+    max-width: 550px;
+    font-size: 1.16rem;
+    font-weight: 300;
+    line-height: 1.75;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-info .hero-btn {
+    margin-top: 2.2rem;
+    background-color: #c9b68a;
+    color: #273847;
+    padding: 1rem 2.7rem;
+    border-radius: 48px;
+    font-weight: 700;
+    font-size: 1.25rem;
+    box-shadow: 0 5px 16px rgba(201, 182, 138, 0.5);
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .hero-info .hero-btn:hover,
+  .hero-info .hero-btn:focus {
+    background-color: #a28543;
+    color: white;
+    outline: none;
+    box-shadow: 0 6px 20px rgba(162, 133, 67, 0.8);
+  }
+
+  /* Projects Section */
+  #projects {
+    max-width: 1100px;
+    margin: 3rem auto 5rem auto;
+    padding: 0 2rem;
+  }
+
+  #projects h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #273847;
+    border-bottom: 3px solid #c9b68a;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.6rem;
+  }
+
+  .project-card {
+    background: #fffdfa;
+    border: 1.8px solid #ddd5c4;
+    border-radius: 18px;
+    box-shadow: 0 7px 24px rgba(39, 56, 71, 0.08);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: 0.3s ease box-shadow, 0.3s ease border-color;
+  }
+
+  .project-card:hover {
+    border-color: #a28543;
+    box-shadow: 0 12px 38px rgba(162, 133, 67, 0.22);
+  }
+
+  .project-thumb {
+    width: 100%;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1.5px solid #ddd5c4;
+    box-shadow: inset 0 -10px 14px -10px rgba(0, 0, 0, 0.12);
+  }
+
+  .project-body {
+    padding: 1.6rem 1.3rem;
+    flex: 1;
+  }
+
+  .project-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.48rem;
+    color: #273847;
+    margin: 0 0 0.45rem 0;
+  }
+
+  .project-tech {
+    font-style: italic;
+    font-size: 1.03rem;
+    color: #a28543;
+    margin-bottom: 1rem;
+  }
+
+  .project-body p {
+    font-size: 1.12rem;
+    color: #3d3b34;
+    line-height: 1.7;
+    margin-bottom: 1.4rem;
+  }
+
+  .project-body a {
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: #a28543;
+    transition: color 0.3s ease;
+  }
+
+  .project-body a:hover {
+    color: #273847;
+    text-decoration: underline;
+  }
+
+  /* Skills, Education, Contact Sections */
+  section#skills, section#education, section#contact {
+    max-width: 800px;
+    margin: 0 auto 5rem auto;
+    padding: 0 1.5rem;
+  }
+
+  section#skills h2, section#education h2, section#contact h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: #273847;
+    border-bottom: 3px solid #c9b68a;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
+  }
+
+  /* Skills */
+  section#skills ul {
+    font-size: 1.15rem;
+    color: #3d3b34;
+    line-height: 1.7;
+    list-style-type: square;
+    padding-left: 1.8rem;
+    font-family: 'Lato', sans-serif;
+  }
+
+  /* Education */
+  section#education > div {
+    margin-bottom: 2rem;
+    color: #3d3b34;
+    font-family: 'Lato', sans-serif;
+  }
+
+  section#education h3 {
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+    font-family: 'Playfair Display', serif;
+  }
+
+  section#education p.edu-inst {
+    font-style: italic;
+    color: #a28543;
+    margin-top: 0;
+    margin-bottom: 0.6rem;
+  }
+
+  /* Contact */
+  section#contact p {
+    color: #3d3b34;
+    font-size: 1.14rem;
+    line-height: 1.7;
+    font-family: 'Lato', sans-serif;
+  }
+
+  section#contact a {
+    color: #a28543;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  section#contact a:hover {
+    text-decoration: underline;
+  }
+
+  /* Responsive */
+  @media (max-width: 950px) {
+    .hero {
+      flex-direction: column;
+      text-align: center;
+      min-height: auto;
+      padding: 4rem 1rem;
+    }
+
+    .hero-content {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .hero-photo {
+      width: 160px;
+      height: 160px;
+    }
+
+    #projects {
+      padding: 1rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero-info h1 {
+      font-size: 2.4rem;
+    }
+
+    .hero-info h2 {
+      font-size: 1.15rem;
+    }
+
+    .project-body h3 {
+      font-size: 1.15rem;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-container">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<div id="home" class="spacer"></div>
+<section class="hero" id="hero" data-aos="fade-up">
+  <div class="hero-content">
+    <div class="hero-photo"></div> 
+    <div class="hero-info">
+      <h1>Hathim Manaf</h1>
+      <h2>Data Scientist | ML & AI Enthusiast</h2>
+      <p>Turning complex data into actionable solutions, deploying scalable ML models, and showcasing projects that make an impact.</p>
+      <a class="hero-btn" href="#projects">View Projects</a>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" data-aos="fade-up">
+  <h2>Selected Projects</h2>
+  <div class="project-grid">
+    <div class="project-card" data-aos="fade-up" data-aos-delay="100" style="background-image: url('PLACEHOLDER_IMAGE_1');">
+      <div class="project-thumb" style="background-image: url('secondhand_car.png');"></div>
+      <div class="project-body">
+        <h3>Car Price Predictor</h3>
+        <div class="project-tech">Python, Flask, ML</div>
+        <p>End-to-end pipeline for estimating used car prices, deployed as a web app for real-time predictions.</p>
+        <a href="https://ml-car-price-predictor-0v6r.onrender.com" target="_blank" rel="noopener noreferrer">Live Demo</a> | 
+        <a href="https://github.com/hathimds/ML_Car_Price_Predictor" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+    <div class="project-card" data-aos="fade-up" data-aos-delay="200" >
+      <div class="project-thumb" style="background-image: url('student_perfromance.png');"></div>
+      <div class="project-body">
+        <h3>Student Performance Prediction</h3>
+        <div class="project-tech">Python, ML, Flask</div>
+        <p>Pipeline for predicting student grades, deployed with real-time predictions on Flask web app.</p>
+        <a href="https://student-performance-prediction-wykq.onrender.com/predictdata" target="_blank" rel="noopener noreferrer">Live Demo</a> | 
+        <a href="https://github.com/hathimds/Student_Performance_Prediction" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+    <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+      <div class="project-thumb" style="background-image: url('ss.png');"></div>
+      <div class="project-body">
+        <h3>Forest Fire FWI Forecast</h3>
+        <div class="project-tech">Python, Ridge, Flask</div>
+        <p>Fire Weather Index prediction using meteorological data, with a web app demo integrated for easy access.</p>
+        <a href="https://algerian-forest-fire-ml-prediction.onrender.com/predictdata" target="_blank" rel="noopener noreferrer">Live Demo</a> | 
+        <a href="https://github.com/hathimds/Algerian-Forest-Fire-ML-Prediction" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" data-aos="fade-up">
+  <h2>Skills</h2>
+  <ul>
+    <li>Programming Languages: Python, SQL, R</li>
+    <li>Machine Learning Frameworks: Scikit-learn, TensorFlow, Keras</li>
+    <li>Data Handling: Pandas, NumPy, Big Data (Hadoop, Hive)</li>
+    <li>Data Visualization: Matplotlib, Seaborn, Plotly</li>
+    <li>Web & Deployment: Flask, HTML, CSS, GitHub Pages</li>
+    <li>Tools & IDEs: Jupyter, VSCode, Git</li>
+  </ul>
+</section>
+
+<!-- Education Section -->
+<section id="education" data-aos="fade-up">
+  <h2>Education</h2>
+  <div>
+    <h3>Diploma in Data Science</h3>
+    <p class="edu-inst">Edure | 2024 - 2025</p>
+    <p>Hands-on training in Python, machine learning, data analysis, and visualization through real-world projects.</p>
+  </div>
+  <div>
+    <h3>BSc in Data Science and Applications</h3>
+    <p class="edu-inst">IIT Madras | 2024 - Present</p>
+    <p>Completed foundation level coursework in data science and applications, focusing on core concepts and practical skills.</p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" data-aos="fade-up" style="padding-bottom: 5rem">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:hathimmanafds@gmail.com">hathimmanafds@gmail.com</a></p>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/hathim-manaf" target="_blank" rel="noopener noreferrer">linkedin.com/in/hathim-manaf</a></p>
+</section>
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 700,
+    easing: 'ease-in-out',
+    once: true
+  });
+</script>
+
+</body>
+</html>
